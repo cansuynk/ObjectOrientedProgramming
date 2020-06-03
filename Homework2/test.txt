@@ -1,0 +1,94 @@
+int main(){
+    OperatorGrid og(10,10);
+    ArithmeticOperator *ao1 = new ArithmeticOperator(2,2,1,'/');
+    ArithmeticOperator *ao2 = new ArithmeticOperator(3,3,1,'+');
+    ArithmeticOperator *ao3 = new ArithmeticOperator(3,6,2,'x');
+    ArithmeticOperator *ao4 = new ArithmeticOperator(3,8,1,'-');
+    ArithmeticOperator *ao5 = new ArithmeticOperator(5,5,1,'/');
+    ArithmeticOperator *ao6 = new ArithmeticOperator(6,8,2,'/');
+    ArithmeticOperator *ao7 = new ArithmeticOperator(7,3,2,'+');
+    ArithmeticOperator *ao8 = new ArithmeticOperator(7,9,1,'+');
+    ArithmeticOperator *ao9 = new ArithmeticOperator(9,7,2,'-');
+    ArithmeticOperator *ao10 = new ArithmeticOperator(10,6,4,'-');
+    ArithmeticOperator *ao11 = new ArithmeticOperator(1,2,1,'x');
+    ArithmeticOperator *ao12 = new ArithmeticOperator(6,5,2,'x');
+    ArithmeticOperator *ao13 = new ArithmeticOperator(1,10,1,'x');
+    ArithmeticOperator *ao14 = new ArithmeticOperator(9,4,2,'+');
+    ArithmeticOperator *ao15 = new ArithmeticOperator(2,10,1,'+');
+    ArithmeticOperator *ao16 = new ArithmeticOperator(5,6,1,'-');
+    ArithmeticOperator *ao17 = new ArithmeticOperator(6,10,1,'-');
+    ArithmeticOperator *ao18 = new ArithmeticOperator(2,8,2,'/');
+    ArithmeticOperator *ao19 = new ArithmeticOperator(5,2,1,'/');
+    ArithmeticOperator *ao20 = new ArithmeticOperator(9,1,1,'/');
+    
+    og.place_operator(ao1);
+    og.place_operator(ao2);
+    og.place_operator(ao3);
+    og.place_operator(ao4);
+    og.place_operator(ao5);
+    og.place_operator(ao6);
+    og.place_operator(ao7);
+    og.place_operator(ao8);
+    og.place_operator(ao9);
+    og.place_operator(ao10);
+    og.place_operator(ao11); //border-conf
+    og.place_operator(ao12); //conf
+    og.place_operator(ao13); //border
+    og.place_operator(ao14); //border-conf
+    og.place_operator(ao15); //border
+    og.place_operator(ao16); //conf
+    og.place_operator(ao17); //border-conf
+    og.place_operator(ao18); //border-conf
+    og.place_operator(ao19); //conf
+    og.place_operator(ao20); //border
+    
+    og.move_operator(3, 1, 'R', 4);
+    og.move_operator(3, 8, 'R', 1);
+    og.move_operator(4, 6, 'D', 3);
+    og.move_operator(7, 2, 'L', 2);//border
+    og.move_operator(7, 7, 'R', 1);//border-conf
+    og.move_operator(9, 8, 'L', 1);//conf
+    og.move_operator(10, 4, 'D', 1);//border
+    
+    
+    return 0;
+}
+
+
+
+/*
+SUCCESS: Operator / with size 1 is placed on (2,2).
+SUCCESS: Operator + with size 1 is placed on (3,3).
+SUCCESS: Operator x with size 2 is placed on (3,6).
+SUCCESS: Operator - with size 1 is placed on (3,8).
+SUCCESS: Operator / with size 1 is placed on (5,5).
+SUCCESS: Operator / with size 2 is placed on (6,8).
+SUCCESS: Operator + with size 2 is placed on (7,3).
+SUCCESS: Operator + with size 1 is placed on (7,9).
+SUCCESS: Operator - with size 2 is placed on (9,7).
+SUCCESS: Operator - with size 4 is placed on (10,6).
+BORDER ERROR: Operator x with size 1 can not be placed on (1,2).
+CONFLICT ERROR: Operator x with size 1 can not be placed on (1,2).
+CONFLICT ERROR: Operator x with size 2 can not be placed on (6,5).
+BORDER ERROR: Operator x with size 1 can not be placed on (1,10).
+BORDER ERROR: Operator + with size 2 can not be placed on (9,4).
+CONFLICT ERROR: Operator + with size 2 can not be placed on (9,4).
+BORDER ERROR: Operator + with size 1 can not be placed on (2,10).
+CONFLICT ERROR: Operator - with size 1 can not be placed on (5,6).
+BORDER ERROR: Operator - with size 1 can not be placed on (6,10).
+CONFLICT ERROR: Operator - with size 1 can not be placed on (6,10).
+BORDER ERROR: Operator / with size 2 can not be placed on (2,8).
+CONFLICT ERROR: Operator / with size 2 can not be placed on (2,8).
+CONFLICT ERROR: Operator / with size 1 can not be placed on (5,2).
+BORDER ERROR: Operator / with size 1 can not be placed on (9,1).
+SUCCESS: / moved from (2,2) to (2,6).
+SUCCESS: - moved from (3,8) to (3,9).
+SUCCESS: / moved from (5,5) to (8,5).
+BORDER ERROR: + can not be moved from (7,3) to (7,1).
+BORDER ERROR: / can not be moved from (6,8) to (6,9).
+CONFLICT ERROR: / can not be moved from (6,8) to (6,9).
+CONFLICT ERROR: - can not be moved from (9,7) to (9,6).
+BORDER ERROR: - can not be moved from (10,6) to (11,6).
+DESTRUCTOR: GIVE BACK[10,10] chars.
+DESTRUCTOR: GIVE BACK[10] Operators.
+*/
